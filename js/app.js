@@ -5,10 +5,6 @@ const choices = ['rock', 'paper', 'scissors'];
 
 
 
-/*-------------------------------- Constants --------------------------------*/
-
-const choices = ['rock', 'paper', 'scissors'];
-
 /*-------------------------------- Variables --------------------------------*/
 
 let playerChoice;
@@ -25,6 +21,23 @@ const resultDisplayEl = document.querySelector('#result-display');
 
 /*-------------------------------- Functions --------------------------------*/
 //handle player click
+
+const getPlayerChoice = (event) => {
+    playerChoice = event.target.id;
+  };
+  
+  const play = (event) => {
+    getPlayerChoice(event);
+    console.log(playerChoice); // <= verify that everything is working!
+  };
+  
+  const getComputerChoice = () => {
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    computerChoice = choices[randomIndex];
+  };
+  
+  
+  
 //generation of random selections for the comp player
 //compare player and comp choices to check for winner using if/else
 //render win/lose/tie messages
