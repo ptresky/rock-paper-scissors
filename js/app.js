@@ -26,10 +26,10 @@ const getPlayerChoice = (event) => {
     playerChoice = event.target.id;
   };
   
-  const play = (event) => {
-    getPlayerChoice(event);
-    console.log(playerChoice); // <= verify that everything is working!
-  };
+//   const play = (event) => {
+//     getPlayerChoice(event);
+//     console.log(playerChoice); // <= verify that everything is working!
+//   };
   
   const getComputerChoice = () => {
     const randomIndex = Math.floor(Math.random() * choices.length);
@@ -57,6 +57,17 @@ const compare = () => {
       msg = 'You lose! Try again?';
     }
   };
+  const render = () => {
+    resultDisplayEl.textContent = `You chose ${playerChoice} and the computer chose ${computerChoice}. ${msg}`;
+  }
+
+  const play = (event) => {
+    getPlayerChoice(event);  // captures player choice, updates state
+    getComputerChoice();  // randomly selects computers choice, updates state
+    compare();            // determines winning result
+    render();             // renders result message back to the user 
+  };
+  
   
 
 /*----------------------------- Event Listeners -----------------------------*/
