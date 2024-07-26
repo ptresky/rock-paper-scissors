@@ -41,7 +41,23 @@ const getPlayerChoice = (event) => {
 //generation of random selections for the comp player
 //compare player and comp choices to check for winner using if/else
 //render win/lose/tie messages
-
+const compare = () => {
+    if (playerChoice === computerChoice) {
+      msg = 'You tied!';
+    } else if (playerChoice === choices[0] && computerChoice === choices[2]) { 
+      // "rock" vs. "scissors"
+      msg = 'Congrats! You win!';
+    } else if (playerChoice === choices[1] && computerChoice === choices[0]) { 
+      // "paper" vs. "rock"
+      msg = 'Congrats! You win!';
+    } else if (playerChoice === choices[2] && computerChoice === choices[1]) { 
+      // "scissors" vs. "paper"
+      msg = 'Congrats! You win!';
+    } else {
+      msg = 'You lose! Try again?';
+    }
+  };
+  
 
 /*----------------------------- Event Listeners -----------------------------*/
 // handle a player clicking a button
